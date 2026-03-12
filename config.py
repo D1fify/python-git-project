@@ -8,8 +8,7 @@
 конфигурацией приложения, включая загрузку из переменных
 окружения и настройки по умолчанию.
 """
-
-# config.py (обновленная версия для конфликта)
+# config.py (после разрешения конфликта)
 import os
 from dotenv import load_dotenv
 
@@ -17,18 +16,19 @@ load_dotenv()
 
 class Config:
     APP_NAME = "Python Git Project"
-    VERSION = "1.2.0"  # Изменено для конфликта
+    VERSION = "1.2.0"  # Берем из feature/enhancements (более новая)
     DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
-    MAX_RETRIES = 5    # Увеличено для конфликта
-    TIMEOUT = 60       # Увеличено для конфликта
-    DATA_DIR = os.getenv('DATA_DIR', './data')  # Новое поле
+    MAX_RETRIES = 5    # Берем из feature/enhancements
+    TIMEOUT = 60       # Берем из feature/enhancements
+    DATA_DIR = os.getenv('DATA_DIR', './data')  # Из feature/enhancements
+    LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')  # Добавляем из hotfix
 
 class DatabaseConfig:
     HOST = os.getenv('DB_HOST', 'localhost')
     PORT = int(os.getenv('DB_PORT', 5432))
     NAME = os.getenv('DB_NAME', 'myapp')
     USER = os.getenv('DB_USER', 'admin')
-    PASSWORD = os.getenv('DB_PASSWORD', '')  # Новое поле
+    PASSWORD = os.getenv('DB_PASSWORD', '')  # Из feature/enhancements
     
     @classmethod
     def get_connection_string(cls):
