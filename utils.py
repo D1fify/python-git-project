@@ -73,3 +73,7 @@ def retry_operation(operation, max_retries=config.MAX_RETRIES):
             if attempt == max_retries - 1:
                 raise
     return None
+def another_feature_function():
+    """Другая функция от другого разработчика"""
+    logger.info("This is a feature from main branch")
+    return "feature_main"
