@@ -15,11 +15,11 @@ load_dotenv()
 
 class Config:
     APP_NAME = "Python Git Project"
-    VERSION = "1.1.5"  # Другая версия
+    VERSION = "1.3.0"  # Другая версия
     DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
-    MAX_RETRIES = 3    # Оставляем как было
-    TIMEOUT = 45       # Другое значение
-    LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')  # Добавляем новое поле
+    MAX_RETRIES = 10   # Другое значение
+    TIMEOUT = 120      # Другое значение
+    API_ENDPOINT = os.getenv('API_ENDPOINT', 'https://api.example.com')  # Новое поле
 
 class DatabaseConfig:
     HOST = os.getenv('DB_HOST', 'localhost')
